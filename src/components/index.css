@@ -1,9 +1,16 @@
+/* :root {
+  --color-back: #faf5ff;
+  --color-lightest: #d8b4fe;
+  --color-light: #d6adff;
+  --color-medium: #d127e8cf;
+  --color-dark: #9a42f3;
+} */
 :root {
-  --color-back: #ecfeffcd;
-  --color-lightest: #ecfeff;
-  --color-light: #cffafe;
-  --color-medium: #164e63;
-  --color-dark: #083344;
+  --color-back: #f7fee7;
+  --color-lightest: #e0fea4d4;
+  --color-light: #a3e635;
+  --color-medium: #84cc16;
+  --color-dark: #a3e635;
 }
 
 * {
