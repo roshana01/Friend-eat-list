@@ -1,20 +1,19 @@
 const FrindeData = [
   {
     name: 'roshanak',
-    avatar: '',
+    avatar: "./public/image/avatar (1).png",
+    balance:34,
     id: 2345
   },
   {
     name: 'milad',
-    avatar: '',
+    avatar: "./public/image/avatar (2).png",
+    balance:-7,
     id: 2346
   },
-  {
-    name: 'delaram',
-    avatar: '',
-    id: 2347
-  },
-
+ 
 ]
 
 export default FrindeData;
+
+
