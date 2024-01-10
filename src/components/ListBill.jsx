@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 export default function ListBill() {
   return (
@@ -20,7 +21,7 @@ export default function ListBill() {
           <option value="friend">sara</option>
         </select>
 
-        <button className="button">Split Bill</button>
+        <Button className="button">Split Bill</Button>
       </form>
     </>
   );
