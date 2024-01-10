@@ -1,9 +1,18 @@
 import React from "react";
+import AddFormFriend from "./AddFormFriend";
+import ListFriends from "./ListFriends";
+import ListBill from "./ListBill";
 
 export default function App() {
   return (
     <>
-      <h1>App</h1>
+      <div className="app">
+        <div className="sidebar">
+          <ListFriends />
+          <AddFormFriend />
+        </div>
+        <ListBill />
+      </div>
     </>
   );
 }
