@@ -1,14 +1,13 @@
 import React from "react";
 import ItemFriends from "./ItemFriends";
 
-export default function ListFriends() {
+export default function ListFriends({ newFriend }) {
   return (
     <ul>
-      {/* {addListFriend.map((friend) => (
+      {newFriend.map((friend) => (
         //components items
-        <ItemFriends />
-      ))} */}
-      <ItemFriends/>
+        <ItemFriends friend={friend} key={friend.id} />
+      ))}
     </ul>
   );
 }

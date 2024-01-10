@@ -1,55 +1,30 @@
 import React from "react";
 
-export default function ItemFriends() {
+export default function ItemFriends({ friend }) {
   return (
     <>
       <li className="select">
-        <img src="./public/image/avatar (1).png" alt="friend" className="img" />
-        <h3>deli🥑</h3>
-        <p className="red">You own -7$</p>
+        <img src={friend.avatar} alt="friend" className="img" />
+        <h3>{friend.name}🍒🍓</h3>
+
+        {friend.balance < 0 ? (
+          <p className="red">
+            You own {friend.name} {Math.abs(friend.balance)}$
+          </p>
+        ) : friend.balance > 1 ? (
+          <p className="green">
+            {friend.name} owes you {friend.balance}$
+          </p>
+        ) : (
+          <p>You and {friend.name} even</p>
+        )}
         {/* <p className="red">
-          You own {friends.name} {Math.abs(friends.balance)}$
+          
         </p>
 
-        <p className="green">
-          {friends.name} owes you {friends.balance}$
-        </p>
+       
 
-        <p>You and {friends.name} even</p> */}
-
-        <button className="button">Select</button>
-      </li>
-      <li className="select">
-        <img src="./public/image/avatar (2).png" alt="friend" className="img" />
-        <h3>milad🥑</h3>
-        <p className="green">You own 23$</p>
-
-        {/* <p className="red">
-          You own {friends.name} {Math.abs(friends.balance)}$
-        </p>
-
-        <p className="green">
-          {friends.name} owes you {friends.balance}$
-        </p>
-
-        <p>You and {friends.name} even</p> */}
-
-        <button className="button">Select</button>
-      </li>
-      <li className="select">
-        <img src="./public/image/avatar (3).png" alt="friend" className="img" />
-        <h3>asra🥑</h3>
-        <p className="">You own 12$</p>
-
-        {/* <p className="red">
-          You own {friends.name} {Math.abs(friends.balance)}$
-        </p>
-
-        <p className="green">
-          {friends.name} owes you {friends.balance}$
-        </p>
-
-        <p>You and {friends.name} even</p> */}
+         */}
 
         <button className="button">Select</button>
       </li>
