@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 export default function AddFormFriend({ addFrirndFun }) {
   //satate in input take data
@@ -40,8 +41,8 @@ export default function AddFormFriend({ addFrirndFun }) {
           value={avatar}
           onChange={(e) => setAvatar(e.target.value)}
         />
-        <button className="button">Add</button>
-        {/* <Button>Add</Button> */}
+       
+        <Button>Add</Button>
       </form>
     </>
   );
