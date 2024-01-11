@@ -1,7 +1,9 @@
 import React from "react";
 import Button from "./Button";
 
-export default function ItemFriends({ friend }) {
+export default function ItemFriends({ friend, selectFunc, onSelect }) {
+  const isSelectFriends = onSelect?.id === friend?.id;
+  
   return (
     <>
       <li className="select">
@@ -19,15 +21,10 @@ export default function ItemFriends({ friend }) {
         ) : (
           <p>You and {friend.name} even</p>
         )}
-        {/* <p className="red">
-          
-        </p>
-
-       
-
-         */}
-
-        <Button className="button">Select</Button>
+        <Button className="button" onClick={() =>selectFunc(friend)}>
+          {isSelectFriends ? "Closed" : "Select"}
+        </Button>
+        {/* frinds at selected */}
       </li>
     </>
   );

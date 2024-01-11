@@ -9,6 +9,7 @@ import Button from "./Button";
 export default function App() {
   const [newFriend, setNewFriend] = useState(FrindeData);
   const [showFriend, setShowFriend] = useState(false);
+  const [selectFriend, setSelectFriend] = useState(null);
 
   const showFrindHandler = () => {
     setShowFriend((show) => !show);
@@ -16,19 +17,28 @@ export default function App() {
 
   const addNewFriendHandler = (friend) => {
     setNewFriend((fri) => [...fri, friend]);
+    setShowFriend(false);
+  };
+
+  const selelctHandler = (friend) => {
+    setSelectFriend((cur) => (cur?.id === friend.id ? null : friend));
   };
 
   return (
     <>
       <div className="app">
         <div className="sidebar">
-          <ListFriends newFriend={newFriend} />
+          <ListFriends
+            newFriend={newFriend}
+            selectFunc={selelctHandler}
+            onSelect={selectFriend}
+          />
           {showFriend && <AddFormFriend addFrirndFun={addNewFriendHandler} />}
           <Button onClick={showFrindHandler}>
             {showFriend ? "Closed" : "AddFriend"}
           </Button>
         </div>
-        <ListBill />
+        {selectFriend && <ListBill />}
       </div>
     </>
   );
