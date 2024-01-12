@@ -20,8 +20,10 @@ export default function App() {
     setShowFriend(false);
   };
 
-  const selelctHandler = (friend) => {
-    setSelectFriend((cur) => (cur?.id === friend.id ? null : friend));
+  const selectHandler = (friend) => {
+    // setSelectFriend(friend.id);
+    setSelectFriend((sel) => sel?.id === friend.id ? null : friend);
+    //inja goftim ageh royeh btn click shod va select shod etelaat dost nashon dadeh mesheh vali zamani k dobar ro on btn click shod yani id i k roye state zakhireh shode ba id frind yeki bod null mesheh yani box clear mesheh 
   };
 
   return (
@@ -30,15 +32,16 @@ export default function App() {
         <div className="sidebar">
           <ListFriends
             newFriend={newFriend}
-            selectFunc={selelctHandler}
-            onSelect={selectFriend}
+            onSelectFriend={selectHandler}
+            stateSelect ={selectFriend}
+            // selectFriend={}
           />
           {showFriend && <AddFormFriend addFrirndFun={addNewFriendHandler} />}
           <Button onClick={showFrindHandler}>
             {showFriend ? "Closed" : "AddFriend"}
           </Button>
         </div>
-        {selectFriend && <ListBill />}
+        {selectFriend && <ListBill onSelect ={selectFriend}/>}
       </div>
     </>
   );

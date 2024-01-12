@@ -1,12 +1,12 @@
 import React from "react";
 import Button from "./Button";
 
-export default function ItemFriends({ friend, selectFunc, onSelect }) {
-  const isSelectFriends = onSelect?.id === friend?.id;
-  
+export default function ItemFriends({ friend, onSelectFriend, stateSelect }) {
+  const isSelect = stateSelect?.id === friend.id;
+
   return (
     <>
-      <li className="select">
+      <li className={isSelect ? "selected" : ""}>
         <img src={friend.avatar} alt="friend" className="img" />
         <h3>{friend.name}🍒🍓</h3>
 
@@ -21,8 +21,8 @@ export default function ItemFriends({ friend, selectFunc, onSelect }) {
         ) : (
           <p>You and {friend.name} even</p>
         )}
-        <Button className="button" onClick={() =>selectFunc(friend)}>
-          {isSelectFriends ? "Closed" : "Select"}
+        <Button className="button" onClick={() => onSelectFriend(friend)}>
+          {isSelect ? "Clear" : "Select"}
         </Button>
         {/* frinds at selected */}
       </li>

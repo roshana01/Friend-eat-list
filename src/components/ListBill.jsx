@@ -1,11 +1,12 @@
 import React from "react";
 import Button from "./Button";
 
-export default function ListBill() {
+export default function ListBill({onSelect}) {
+  // console.log(onSelect.name);
   return (
     <>
       <form action="" className="form-split-bill" >
-        <h2>Split a bill with sara</h2>
+        <h2>Split a bill with {onSelect.name}</h2>
         <label>💰Bill value</label>
         <input type="number" />
 
@@ -18,7 +19,7 @@ export default function ListBill() {
         <label>🤑How is paying the bill?</label>
         <select name="" id="">
           <option value={""}>You</option>
-          <option value="friend">sara</option>
+          <option value="friend">{onSelect.name}</option>
         </select>
 
         <Button className="button">Split Bill</Button>
