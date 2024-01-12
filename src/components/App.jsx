@@ -53,7 +53,9 @@ export default function App() {
             {showFriend ? "Closed" : "AddFriend"}
           </Button>
         </div>
-        {selectFriend && <ListBill onSelect={selectFriend} onSplitBill={onSplitBillhandler}/>}
+        {selectFriend && (
+          <ListBill onSelect={selectFriend} onSplitBill={onSplitBillhandler} />
+        )}
       </div>
     </>
   );

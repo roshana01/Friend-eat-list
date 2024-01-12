@@ -55,3 +55,6 @@ export default function ListBill({ onSelect ,onSplitBill }) {
     </>
   );
 }
+
+
+//list bill copy shodeh 
