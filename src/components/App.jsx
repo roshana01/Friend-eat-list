@@ -22,8 +22,20 @@ export default function App() {
 
   const selectHandler = (friend) => {
     // setSelectFriend(friend.id);
-    setSelectFriend((sel) => sel?.id === friend.id ? null : friend);
-    //inja goftim ageh royeh btn click shod va select shod etelaat dost nashon dadeh mesheh vali zamani k dobar ro on btn click shod yani id i k roye state zakhireh shode ba id frind yeki bod null mesheh yani box clear mesheh 
+    setSelectFriend((sel) => (sel?.id === friend.id ? null : friend));
+    //inja goftim ageh royeh btn click shod va select shod etelaat dost nashon dadeh mesheh vali zamani k dobar ro on btn click shod yani id i k roye state zakhireh shode ba id frind yeki bod null mesheh yani box clear mesheh
+  };
+
+  const onSplitBillhandler = (vl) => {
+    setNewFriend((friend) =>
+      friend.map((friend) =>
+        friend.id === selectFriend.id
+          ? { ...friend, balance: friend.balance + vl }
+          : friend
+      )
+    );
+
+    setSelectFriend(null);
   };
 
   return (
@@ -33,7 +45,7 @@ export default function App() {
           <ListFriends
             newFriend={newFriend}
             onSelectFriend={selectHandler}
-            stateSelect ={selectFriend}
+            stateSelect={selectFriend}
             // selectFriend={}
           />
           {showFriend && <AddFormFriend addFrirndFun={addNewFriendHandler} />}
@@ -41,7 +53,7 @@ export default function App() {
             {showFriend ? "Closed" : "AddFriend"}
           </Button>
         </div>
-        {selectFriend && <ListBill onSelect ={selectFriend}/>}
+        {selectFriend && <ListBill onSelect={selectFriend} onSplitBill={onSplitBillhandler}/>}
       </div>
     </>
   );
