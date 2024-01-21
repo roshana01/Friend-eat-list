@@ -54,7 +54,12 @@ export default function App() {
           </Button>
         </div>
         {selectFriend && (
-          <ListBill onSelect={selectFriend} onSplitBill={onSplitBillhandler} />
+          <ListBill
+            onSelect={selectFriend}
+            onSplitBill={onSplitBillhandler}
+            key={selectFriend?.id} //make copmonents instances new
+            
+          />
         )}
       </div>
     </>

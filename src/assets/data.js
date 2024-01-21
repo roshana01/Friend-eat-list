@@ -11,9 +11,16 @@ const FrindeData = [
     balance:-7,
     id: 2346
   },
- 
+
 ]
 
 export default FrindeData;
 
 
+// const userData = [
+//   { name: "roshanak", email: 'rshnk@gmail.com' },
+//   { name: "milad", email: 'milad@gmail.com' },
+//   { name: "fhater", email: 'fhater@gmail.com' },
+// ]
+
+// export default userData
