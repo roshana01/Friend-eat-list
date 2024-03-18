@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import {useFriend}  from "../context/ContextProvider";
 import Button from "./Button";
 
-export default function ListBill({ onSelect ,onSplitBill }) {
+export default function ListBill() {
+  const { selectFriend ,onSplitBillHandel } = useFriend();
+  
   const [bill, setBill] = useState("");
   const [paidByUser, setPaidByUser] = useState("");
   const paidByFriend = bill ? bill - paidByUser : "";
@@ -11,13 +14,13 @@ export default function ListBill({ onSelect ,onSplitBill }) {
     e.preventDefault();
     if (!bill || !paidByUser) return;
 
-    onSplitBill(whoIsPaying === "user" ? paidByFriend : -paidByUser);
+    onSplitBillHandel(whoIsPaying === "user" ? paidByFriend : -paidByUser);
   };
 
   return (
     <>
       <form action="" className="form-split-bill" onSubmit={billHandlerSubmit}>
-        <h2>Split a bill with {onSelect.name}</h2>
+        <h2>Split a bill with {selectFriend.name}</h2>
         <label>💰Bill value</label>
         <input
           type="number"
@@ -47,7 +50,7 @@ export default function ListBill({ onSelect ,onSplitBill }) {
           onChange={(e) => setWhoIsPaying(e.target.value)}
         >
           <option value={whoIsPaying}>You</option>
-          <option value="friend">{onSelect.name}</option>
+          <option value="friend">{selectFriend.name}</option>
         </select>
 
         <Button className="button">Split Bill</Button>

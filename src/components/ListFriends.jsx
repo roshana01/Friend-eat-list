@@ -1,17 +1,13 @@
 import React from "react";
+import { useFriend } from "../context/ContextProvider";
 import ItemFriends from "./ItemFriends";
 
-export default function ListFriends({ newFriend, onSelectFriend,stateSelect }) {
+export default function ListFriends() {
+  const { newFriend } = useFriend();
   return (
     <ul>
       {newFriend.map((friend) => (
-        //components items
-        <ItemFriends
-          friend={friend}
-          key={friend.id}
-          onSelectFriend={onSelectFriend}
-          stateSelect={stateSelect}
-        />
+        <ItemFriends friend={friend} key={friend.id} />
       ))}
     </ul>
   );

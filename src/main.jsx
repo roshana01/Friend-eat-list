@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from './components/App.jsx'
-import "./components/index.css";
+import App from "./components/App.jsx";
+import "./index.css";
+import { ContextProvider } from "./context/ContextProvider.jsx";
 // import First from "./page/First";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <ContextProvider>
     <App />
     {/* <First /> */}
-  </React.StrictMode>
+  </ContextProvider>
 );

@@ -1,4 +1,4 @@
-const FrindeData = [
+const friendData = [
   {
     name: 'roshanak',
     avatar: "./public/image/avatar (1).png",
@@ -14,7 +14,7 @@ const FrindeData = [
 
 ]
 
-export default FrindeData;
+export default friendData;
 
 
 // const userData = [

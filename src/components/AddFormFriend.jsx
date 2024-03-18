@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import  {useFriend } from "../context/ContextProvider";
 import Button from "./Button";
 
-export default function AddFormFriend({ addFrirndFun }) {
+export default function AddFormFriend() {
+  const { addNewFriendHandler } = useFriend();
+
   //satate in input take data
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("./public/image/avatar (3).png");
@@ -17,7 +20,7 @@ export default function AddFormFriend({ addFrirndFun }) {
       id: crypto.randomUUID(),
     };
 
-    addFrirndFun(newDataFriend);
+    addNewFriendHandler(newDataFriend);
     setName("");
   };
 
@@ -41,7 +44,7 @@ export default function AddFormFriend({ addFrirndFun }) {
           value={avatar}
           onChange={(e) => setAvatar(e.target.value)}
         />
-       
+
         <Button>Add</Button>
       </form>
     </>

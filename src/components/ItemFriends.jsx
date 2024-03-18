@@ -1,30 +1,33 @@
 import React from "react";
+import { useFriend } from "../context/ContextProvider";
 import Button from "./Button";
 
-export default function ItemFriends({ friend, onSelectFriend, stateSelect }) {
-  const isSelect = stateSelect?.id === friend.id;
+export default function ItemFriends({ friend }) {
+  const { selectHandler, selectFriend } = useFriend();
+  const { avatar, name, balance } = friend;
+  const isSelect = selectFriend?.id === friend.id;
 
   return (
     <>
       <li className={isSelect ? "selected" : ""}>
-        <img src={friend.avatar} alt="friend" className="img" />
-        <h3>{friend.name}🍒🍓</h3>
+        <img src={avatar} alt="friend" className="img" />
+        <h3>{name}🍒🍓</h3>
 
-        {friend.balance < 0 ? (
+        {balance < 0 ? (
           <p className="red">
-            You own {friend.name} {Math.abs(friend.balance)}$
+            You own {name} {Math.abs(balance)}$
           </p>
         ) : friend.balance > 1 ? (
           <p className="green">
-            {friend.name} owes you {friend.balance}$
+            {friend.name} owes you {balance}$
           </p>
         ) : (
-          <p>You and {friend.name} even</p>
+          <p>You and {name} even</p>
         )}
-        <Button className="button" onClick={() => onSelectFriend(friend)}>
+        <Button className="button" onClick={() => selectHandler(friend)}>
           {isSelect ? "Clear" : "Select"}
         </Button>
-        {/* frinds at selected */}
+        {/* friends at selected */}
       </li>
     </>
   );
